@@ -1,0 +1,37 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+:root {
+  --fleet-primary: #1e7855;
+  --mat-sys-primary: #1e7855;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-secondary: #477a66;
+  --mat-sys-tertiary: #5b7f9a;
+  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+  color: #29384a;
+  background: #f6f8fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+  font-size: 13px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 3px solid #61a889;
+  outline-offset: 2px;
+}

@@ -1,0 +1,152 @@
+.app-shell {
+  min-height: 100vh;
+  background: #f6f8fb;
+}
+.topbar {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 0 42px;
+  background: #fff;
+  border-bottom: 1px solid #e8edf3;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #172436;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.brand-light {
+  color: #738196;
+  font-weight: 500;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #e8f4ef;
+  color: #197653;
+}
+.brand-mark mat-icon {
+  font-size: 21px;
+  width: 21px;
+  height: 21px;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: 100%;
+}
+.main-nav a {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  color: #738196;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+.main-nav a.active {
+  color: #1c7555;
+  border-color: #1c7555;
+}
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.connection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #237b58;
+  font-size: 12px;
+  font-weight: 650;
+}
+.stream-debug {
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: #f0f3f6;
+  color: #748193;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.connection.stale {
+  color: #bd6b16;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #30a477;
+  box-shadow: 0 0 0 3px #e6f4ed;
+}
+.stale .status-dot {
+  background: #e19631;
+  box-shadow: 0 0 0 3px #fbf0df;
+}
+.user-chip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #556376;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.avatar {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8edf5;
+  color: #526179;
+  font-weight: 700;
+}
+.logout-button {
+  color: #677487 !important;
+}
+.assistant-button {
+  color: #267c58 !important;
+  font-size: 11px;
+}
+.assistant-button mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  margin-right: 3px;
+}
+main {
+  max-width: 1440px;
+  margin: auto;
+  padding: 34px 42px 60px;
+}
+main.auth-main {
+  padding: 0;
+  max-width: none;
+}
+@media (max-width: 850px) {
+  .topbar {
+    padding: 0 18px;
+    gap: 22px;
+  }
+  .topbar-right {
+    gap: 10px;
+  }
+  .user-chip {
+    display: none;
+  }
+  main {
+    padding: 24px 18px 40px;
+  }
+}

@@ -1,0 +1,48 @@
+<div class="app-shell" [class.login-shell]="onLogin">
+  @if (auth.user(); as user) {
+    <header class="topbar">
+      <a class="brand" routerLink="/" aria-label="Fleet Pulse home">
+        <span class="brand-mark"><mat-icon>monitor_heart</mat-icon></span>
+        <span>fleet<span class="brand-light">pulse</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          >Fleet</a
+        >
+        @if (user.role === 'operator') {
+          <a routerLink="/rules" routerLinkActive="active">Alert rules</a>
+        }
+        <a routerLink="/settings" routerLinkActive="active">Settings</a>
+      </nav>
+      <div class="topbar-right">
+        @if (metrics.malformedCount() || metrics.duplicateCount() || metrics.reorderedCount()) {
+          <div class="stream-debug" role="status" aria-live="polite">
+            Stream checks · {{ metrics.reorderedCount() }} reordered ·
+            {{ metrics.duplicateCount() }} duplicates · {{ metrics.malformedCount() }} malformed
+          </div>
+        }
+        <div class="connection" [class.stale]="metrics.stale()" role="status" aria-live="polite">
+          <span class="status-dot"></span>
+          <span>{{ connectionLabel }}</span>
+        </div>
+        <div class="user-chip">
+          <span class="avatar">{{ user.email.charAt(0).toUpperCase() }}</span><span>{{
+            user.role
+          }}</span>
+        </div>
+        <button mat-button class="assistant-button" (click)="assistantOpen.set(true)">
+          <mat-icon>auto_awesome</mat-icon> Ask Ops
+        </button>
+        <button mat-button class="logout-button" (click)="logout()" aria-label="Log out">
+          Log out
+        </button>
+      </div>
+    </header>
+  }
+  <main [class.auth-main]="onLogin">
+    <router-outlet />
+  </main>
+  @if (assistantOpen()) {
+    <app-assistant-panel (dismissed)="assistantOpen.set(false)" />
+  }
+</div>
